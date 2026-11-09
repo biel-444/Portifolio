@@ -114,6 +114,7 @@ body.zone-sec-on #hud nav a:hover{border-color:#00ff88}
 .badge .tag{font-family:var(--px);font-size:.55rem;padding:3px 6px;background:var(--ink);color:#ffd23f}
 
 /* ===== PROJETO PRINCIPAL ===== */
+.sub-h{font-size:.8rem;margin:36px 0 14px;color:#9dffc8}.wip{display:grid;gap:18px}
 .feat{max-width:760px;display:flex;flex-direction:column;gap:14px}
 .feat h3{font-size:1rem}
 .feat .st{font-family:var(--px);font-size:.58rem;color:#00d4ff}
@@ -262,6 +263,8 @@ html:has(body.nomo){scroll-behavior:auto}
       <h2 class="title-h rv">HTTPFREQUENCY</h2>
       <p class="lead rv">Ferramenta que desenvolvi para analisar requisições HTTP e conferir DNS, cabeçalhos e e-mail.</p>
       <article class="px feat rv" id="featured"></article>
+      <h3 class="sub-h rv">EM ANDAMENTO</h3>
+      <div id="wip" class="wip"></div>
     </div>
   </section>
 
@@ -301,6 +304,12 @@ const CFG = {
   email: ''
 };
 
+const WIP = [
+  { title:'BRAILLEPLAY', status:'EM ANDAMENTO', link:'https://braille-play.vercel.app/',
+    desc:'Plataforma educacional para aprender o alfabeto Braille por meio de jogos.',
+    points:['Trilha de fases com recompensa em estrelas','Modo de treino livre e jogo da forca com tema Braille','Conversor de texto','Alfabeto com som ao tocar na letra, mostrando também o Braille e a datilologia em Libras'],
+    tags:['Educação','Acessibilidade','Web'] }
+];
 const FEATURED = {
   title:'HTTPFREQUENCY', status:'NO AR', link:'https://www.httpfrequency.com.br',
   desc:'Plataforma online, gratuita e sem cadastro, para analisar requisições HTTP e monitorar endpoints. Ajuda a medir disponibilidade e a conferir a configuração de rede e de segurança de um domínio.',
@@ -380,6 +389,11 @@ const NEWTAB = '<span class="sr"> (abre em nova aba)</span>';
 /* ================= CONTEÚDO ================= */
 $('#yr').textContent = new Date().getFullYear();
 
+$('#wip').innerHTML = WIP.map(w=>`<article class="px feat rv"><div class="st">${esc(w.status)}</div>
+  <h3>${esc(w.title)}</h3><p>${esc(w.desc)}</p>
+  <ul>${w.points.map(p=>`<li>${esc(p)}</li>`).join('')}</ul>
+  <div class="tags">${w.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>
+  <a class="btn" href="${w.link}" target="_blank" rel="noopener">ABRIR PROJETO${NEWTAB}</a></article>`).join('');
 $('#featured').innerHTML = `<div class="st">${esc(FEATURED.status)}</div>
   <h3>${esc(FEATURED.title)}</h3>
   <p>${esc(FEATURED.desc)}</p>
