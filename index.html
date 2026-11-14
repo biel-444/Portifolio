@@ -114,21 +114,25 @@ body.zone-sec-on #hud nav a:hover{border-color:#00ff88}
 .badge .tag{font-family:var(--px);font-size:.55rem;padding:3px 6px;background:var(--ink);color:#ffd23f}
 
 /* ===== PROJETO PRINCIPAL ===== */
-.sub-h{font-size:.8rem;margin:36px 0 14px;color:#9dffc8}.wip{display:grid;gap:18px}
+.proj-h{font-size:.8rem;margin:34px 0 14px}.wip{display:grid;gap:18px}.sec-cards{display:grid;gap:22px;max-width:760px}.sec-cards .feat{max-width:none}.sec-cards .btn{margin-top:4px}
 .feat{max-width:760px;display:flex;flex-direction:column;gap:14px}
 .feat h3{font-size:1rem}
-.feat .st{font-family:var(--px);font-size:.58rem;color:#00d4ff}
+.feat .st{font-family:var(--px);font-size:.58rem;color:#0a6a8a}.zone-sec .feat .st{color:#00d4ff}
 .feat ul{list-style:none;display:grid;gap:6px}
-.feat li::before{content:"▶ ";color:#00ff88}
+.feat li::before{content:"▶ ";color:#1d6b3a}.zone-sec .feat li::before{color:#00ff88}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tags span{font-size:1.05rem;padding:1px 8px;border:2px solid currentColor}
 .feat .btn{align-self:flex-start}
 
 /* ===== DESCIDA ===== */
-#descida{height:120vh;overflow:hidden;background:linear-gradient(to bottom,transparent 0,transparent 60%,#050b09 100%),repeating-linear-gradient(0deg,#7a4a2a 0 16px,#6b3f23 16px 32px)}
+#descida{position:relative;overflow:hidden;background:repeating-linear-gradient(0deg,#7a4a2a 0 16px,#6b3f23 16px 32px)}
+#descida::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90vh;background:linear-gradient(to bottom,transparent,#050b09);pointer-events:none}
+#descida .earth{padding-top:120px;padding-bottom:40px}
+#descida .earth .title-h,#descida .earth .proj-h{color:#fff;text-shadow:3px 3px 0 #000}
+#descida .earth .lead{color:#ffe9c2;text-shadow:2px 2px 0 #000}
 #descida::before{content:"";position:absolute;left:0;right:0;top:0;height:48px;background:repeating-linear-gradient(90deg,#3fb04f 0 16px,#35983f 16px 32px);border-bottom:16px solid #2a7a33;box-shadow:0 16px 0 #5b3a1f}
 #descida .dots{position:absolute;inset:0;background-image:radial-gradient(#4f2f18 3px,transparent 4px),radial-gradient(#9b6a3f 2px,transparent 3px);background-size:64px 64px,40px 40px;background-position:0 0,20px 30px;opacity:.7}
-#descida .wrap{display:flex;flex-direction:column;justify-content:center;height:100%;padding-top:80px}
+#descida #descend{display:flex;flex-direction:column;justify-content:center;min-height:100vh;padding-top:80px}
 #descida h2{font-size:clamp(.9rem,2.6vw,1.5rem);color:#fff;text-shadow:4px 4px 0 #000;margin-bottom:20px}
 .arrows{font-family:var(--px);font-size:2rem;color:#ffd23f;text-shadow:4px 4px 0 #000;animation:fall 1s steps(4) infinite}
 @keyframes fall{0%{transform:translateY(-10px);opacity:.2}100%{transform:translateY(20px);opacity:1}}
@@ -180,7 +184,7 @@ html:has(body.nomo){scroll-behavior:auto}
     <span class="hearts" aria-hidden="true">♥♥♥</span>
     <span aria-hidden="true" id="score">SCORE 00000</span>
     <nav aria-label="Seções do portfólio">
-      <a href="#inicio">INÍCIO</a><a href="#sobre">SOBRE</a><a href="#skills">SKILLS</a><a href="#certificados">CERTIFICADOS</a><a href="#projeto">PROJETO</a><a href="#writeups">WRITE-UPS</a><a href="#contato">CONTATO</a>
+      <a href="#inicio">INÍCIO</a><a href="#sobre">SOBRE</a><a href="#skills">SKILLS</a><a href="#certificados">CERTIFICADOS</a><a href="#projeto">PROJETOS</a><a href="#writeups">WRITE-UPS</a><a href="#contato">CONTATO</a>
     </nav>
   </div>
   <div id="xp" aria-hidden="true"><i></i></div>
@@ -194,10 +198,10 @@ html:has(body.nomo){scroll-behavior:auto}
     <div class="sun" aria-hidden="true"></div>
     <div class="wrap">
       <h1>GABRIEL<br>DE VARGAS</h1>
-      <p class="sub">DEV · DESIGN · SEGURANÇA DA INFORMAÇÃO</p>
+      <p class="sub">DEV · REDES · SEGURANÇA DA INFORMAÇÃO</p>
       <div class="start">
         <a class="btn" href="#sobre"><span class="blink" aria-hidden="true">▶</span>&nbsp;COMEÇAR</a>
-        <a class="btn alt" href="#projeto">VER PROJETO PRINCIPAL</a>
+        <a class="btn alt" href="#projeto">VER PROJETOS</a>
       </div>
     </div>
   </section>
@@ -211,7 +215,7 @@ html:has(body.nomo){scroll-behavior:auto}
         <div class="px rv">
           <p>Sou o Gabriel de Vargas, estudante de Tecnologias da Informação e Comunicação (TIC), cursando a Universidade Federal de Santa Catarina. Tenho dois focos: desenvolver sites e apps, e entender segurança da informação, tanto o lado da defesa quanto o do ataque.</p>
           <p>Aprendo por cursos e laboratórios e documento o que estudo, com write-ups de salas do TryHackMe e de laboratórios. Faço parte do grupo OFFSEC do LIA, na UFSC.</p>
-          <p>Também desenvolvi o HTTPFrequency, uma ferramenta para analisar requisições HTTP, DNS, cabeçalhos de segurança e e-mail. Ela aparece mais abaixo, em Projeto.</p>
+          <p>Também desenvolvi o HTTPFrequency, uma ferramenta para analisar requisições HTTP, DNS, cabeçalhos de segurança e e-mail. Ela aparece mais abaixo, em Projetos web, junto com o BraillePlay.</p>
         </div>
         <div class="px edu rv">
           <h3>FORMAÇÃO</h3>
@@ -230,7 +234,7 @@ html:has(body.nomo){scroll-behavior:auto}
     <div class="wrap">
       <span class="stage-tag rv">FASE 2 · STATUS</span>
       <h2 class="title-h rv">HABILIDADES</h2>
-      <p class="lead rv">O XP vem de horas de curso concluídas e do uso em projetos e write-ups.</p>
+      <p class="lead rv">Cada segmento de barra equivale a 20 horas de curso concluídas. O inventário reúne ferramentas e conceitos que já estudei ou usei.</p>
       <div class="skill-cols" id="skillCols"></div>
     </div>
   </section>
@@ -247,9 +251,18 @@ html:has(body.nomo){scroll-behavior:auto}
   </section>
 </div>
 
-<section id="descida" aria-labelledby="descTitle">
+<section id="descida" aria-label="Projetos web e descida para a zona de segurança">
   <div class="dots" aria-hidden="true"></div>
-  <div class="wrap">
+  <div class="wrap earth" id="projeto">
+      <span class="stage-tag rv">FASE 4 · PROJETOS WEB</span>
+      <h2 class="title-h rv">PROJETOS WEB</h2>
+      <p class="lead rv">Sites e plataformas que desenvolvi: uma ferramenta para redes e cibersegurança e uma plataforma educacional.</p>
+      <h3 class="proj-h rv">PROJETO PRINCIPAL</h3>
+      <article class="px feat rv" id="featured"></article>
+      <h3 class="proj-h rv">EM ANDAMENTO</h3>
+      <div id="wip" class="wip"></div>
+  </div>
+  <div class="wrap" id="descend">
     <h2 id="descTitle">▼ DESCENDO PARA A ZONA DE SEGURANÇA ▼</h2>
     <div class="arrows" aria-hidden="true">▼ ▼ ▼</div>
     <div class="layer" aria-hidden="true">CAMADA 1 · PROGRAMAÇÃO<br>CAMADA 2 · LINUX E TERMINAL<br>CAMADA 3 · REDES E DEFESA CIBERNÉTICA<br>CAMADA 4 · LABORATÓRIOS E WRITE-UPS</div>
@@ -257,20 +270,35 @@ html:has(body.nomo){scroll-behavior:auto}
 </section>
 
 <div class="zone-sec">
-  <section id="projeto" class="pad">
+  <section id="seguranca" class="pad">
     <div class="wrap">
-      <span class="stage-tag rv">FASE 4 · PROJETO PRINCIPAL</span>
-      <h2 class="title-h rv">HTTPFREQUENCY</h2>
-      <p class="lead rv">Ferramenta que desenvolvi para analisar requisições HTTP e conferir DNS, cabeçalhos e e-mail.</p>
-      <article class="px feat rv" id="featured"></article>
-      <h3 class="sub-h rv">EM ANDAMENTO</h3>
-      <div id="wip" class="wip"></div>
+      <span class="stage-tag rv">FASE 5 · TRILHA DE SEGURANÇA</span>
+      <h2 class="title-h rv">DEFESA E ATAQUE</h2>
+      <p class="lead rv">Onde estou me formando em segurança da informação.</p>
+      <div class="sec-cards">
+        <article class="px feat rv">
+          <div class="st">CONCLUÍDO</div>
+          <h3>CISCO · CYBERSECURITY DEFENSE ANALYST</h3>
+          <p>Concluí o Career Path e o exame em 02/11/2026, na Cisco Networking Academy. O curso cobre a tríade CIA e gestão de risco, MITRE ATT&amp;CK, o papel do analista de SOC, Splunk e SPL, triagem e investigação de incidentes e threat hunting.</p>
+          <a class="btn" href="certificados/cisco-cybersecurity-defense-analyst-career-path.pdf" target="_blank" rel="noopener">VER CERTIFICADO<span class="sr"> (abre em nova aba)</span></a>
+        </article>
+        <article class="px feat rv">
+          <div class="st">EM ANDAMENTO</div>
+          <h3>CISCO · ETHICAL HACKER</h3>
+          <p>Estou fazendo o curso Ethical Hacker da Cisco Networking Academy, para estudar também o lado do ataque.</p>
+        </article>
+        <article class="px feat rv">
+          <div class="st">GRUPO DE ESTUDO</div>
+          <h3>OFFSEC · LIA · UFSC</h3>
+          <p>Faço parte do grupo OFFSEC do LIA, na UFSC. Documento salas do TryHackMe e laboratórios em write-ups técnicos, listados logo abaixo.</p>
+        </article>
+      </div>
     </div>
   </section>
 
   <section id="writeups" class="pad">
     <div class="wrap">
-      <span class="stage-tag rv">FASE 5 · MISSÕES</span>
+      <span class="stage-tag rv">FASE 6 · MISSÕES</span>
       <h2 class="title-h rv">WRITE-UPS</h2>
       <p class="lead rv">Salas do TryHackMe documentadas em relatório técnico, como parte do grupo OFFSEC do LIA, na UFSC. Clique em uma missão para ver o resumo e baixar o PDF.</p>
       <div class="quests" id="quests"></div>
@@ -373,11 +401,6 @@ const CISCO_SKILLS = ['Tríade CIA e gestão de risco','MITRE ATT&CK','Papel do 
 const INVENTORY = ['Flutter / Dart','SQLite','Figma'];
 
 // Prática: em quantos itens do site (projeto principal + write-ups) a palavra-chave aparece nas tags.
-const PRACTICE = [
-  { n:'Nmap', k:['nmap'] }, { n:'Escalação via sudo', k:['sudo','fail2ban','socat'] }, { n:'Gobuster', k:['gobuster'] },
-  { n:'Hashcat', k:['hashcat'] }, { n:'Metasploit', k:['metasploit'] }, { n:'Esteganografia', k:['steghide'] },
-  { n:'HTML / CSS / JS', k:['html','css','js'] }
-];
 
 /* ================= HELPERS ================= */
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
@@ -410,15 +433,13 @@ const fmtD = d => d.split('-').reverse().join('/');
 // habilidades: estudo (horas) e prática (usos)
 const studyMap = {}; CERTS.filter(c=>c.org==='Estudonauta').forEach(c=>{ studyMap[c.topic]=(studyMap[c.topic]||0)+c.h; });
 const study = Object.entries(studyMap).sort((a,b)=>b[1]-a[1]);
-const items = [FEATURED,...WRITEUPS].map(x=>x.tags.map(t=>t.toLowerCase()));
-const practice = PRACTICE.map(s=>({n:s.n, v: items.filter(tags=>tags.some(t=>s.k.some(k=>t.includes(k)))).length})).filter(s=>s.v>0).sort((a,b)=>b.v-a.v);
 const bars = (v,max) => `<div class="bar" aria-hidden="true">${Array.from({length:max},(_,i)=>`<i class="${i<v?'on':''}"></i>`).join('')}</div>`;
-const maxStudy = Math.ceil(Math.max(...study.map(s=>s[1]))/20), maxPr = Math.max(...practice.map(s=>s.v));
+const maxStudy = Math.ceil(Math.max(...study.map(s=>s[1]))/20);
 $('#skillCols').innerHTML = `
   <div class="px rv"><h3>ESTUDO</h3><div class="sub-h">HORAS DE CURSO CONCLUÍDAS</div>${study.map(([n,h])=>`<div class="skill"><div class="n"><span>${esc(n)}</span><small>${h} h</small></div>${bars(h/20,maxStudy)}</div>`).join('')}</div>
-  <div class="px rv"><h3>PRÁTICA</h3><div class="sub-h">USOS EM PROJETO E WRITE-UPS</div>${practice.map(s=>`<div class="skill"><div class="n"><span>${esc(s.n)}</span><small>${s.v} ${s.v===1?'uso':'usos'}</small></div>${bars(s.v,maxPr)}</div>`).join('')}</div>
-  <div class="px rv"><h3>SOC / DEFESA</h3><div class="sub-h">DO CURSO CISCO</div><div class="chips">${CISCO_SKILLS.map(s=>`<span>${esc(s)}</span>`).join('')}</div>
-    <div class="sub-h">TAMBÉM NO INVENTÁRIO</div><div class="chips">${INVENTORY.map(s=>`<span>${esc(s)}</span>`).join('')}</div></div>`;
+  <div class="px rv"><h3>INVENTÁRIO</h3>
+    <div class="sub-h">DESENVOLVIMENTO E DESIGN</div><div class="chips">${INVENTORY.map(s=>`<span>${esc(s)}</span>`).join('')}</div>
+    <div class="sub-h">SOC E DEFESA · CURSO CISCO</div><div class="chips">${CISCO_SKILLS.map(s=>`<span>${esc(s)}</span>`).join('')}</div></div>`;
 
 // certificados por trilha
 $('#certGrid').innerHTML = TRAIL_ORDER.map(t=>{
@@ -436,12 +457,14 @@ const BADGES = [
   { ico:String(TRAIL_COUNT), icon:'seal', name:'TRILHAS CERTIFICADAS', sub:`${ESTUD_TRAILS} da Estudonauta e 1 da Cisco Networking Academy · ${CERTS.length} certificados` },
   { ico:String(totalH), icon:'clock', name:'HORAS DE CURSO', sub:`${CERTS.filter(c=>c.org==='Estudonauta').length} módulos concluídos na Estudonauta` },
   { img:'cisco-badge.png', alt:'Selo digital da Cisco Networking Academy: Cybersecurity Defense Analyst Career Path', name:'CISCO DEFENSE ANALYST', sub:'Career Path e exame concluídos em 02/11/2026' },
-  { ico:'HF', icon:'hf', name:'SITE NO AR', sub:'Ferramenta HTTPFrequency em www.httpfrequency.com.br' }
+  { ico:'HF', icon:'hf', name:'SITE NO AR', sub:'HTTPFrequency em www.httpfrequency.com.br' },
+  { ico:'', icon:'bp', name:'BRAILLEPLAY NO AR', sub:'Plataforma educacional em braille-play.vercel.app' }
 ];
 const MINI = { seal:'<svg class="mini" viewBox="0 0 12 12" width="22" height="22" shape-rendering="crispEdges" aria-hidden="true"><path fill="#e8554e" d="M3 7h2v5H4l-1-1zM7 7h2v4l-1 1H7z"/><path fill="#ffd23f" d="M4 0h4v1h2v2h1v4h-1v2H8v1H4V9H2V7H1V3h1V1h2z"/><path fill="#2a1d3a" d="M5 3h2v1h1v1H7v1h1v1H6V6H5V5H4V4h1z" opacity=".55"/></svg>', clock:'<svg class="mini" viewBox="0 0 12 12" width="22" height="22" shape-rendering="crispEdges" aria-hidden="true"><path fill="#2a1d3a" d="M4 0h4v1h2v1h1v2h1v4h-1v2h-1v1H8v1H4v-1H2v-1H1V8H0V4h1V2h1V1h2z"/><path fill="#fff3d6" d="M4 1h4v1h2v2h1v4h-1v2H8v1H4v-1H2V8H1V4h1V2h2z"/><path fill="#2a1d3a" d="M5 2h2v4h2v1H5z"/></svg>' };
+const BP_SVG = '<svg viewBox="0 0 12 16" width="34" height="44" shape-rendering="crispEdges"><g fill="#2a1d3a"><rect x="1" y="1" width="4" height="4"/><rect x="1" y="6" width="4" height="4" opacity=".18"/><rect x="1" y="11" width="4" height="4"/><rect x="7" y="1" width="4" height="4" opacity=".18"/><rect x="7" y="6" width="4" height="4"/><rect x="7" y="11" width="4" height="4" opacity=".18"/></g></svg>';
 const HF_SVG = '<svg viewBox="0 0 16 14" width="44" height="38" shape-rendering="crispEdges"><path fill="#1d6b3a" d="M1 1h2v4h2V1h2v10H5V7H3v4H1zM9 1h6v2h-4v2h3v2h-3v4H9z"/><path fill="#2a1d3a" d="M0 13h4l1-2 1 2 1-3 1 3h8v1H0z"/></svg>';
 $('#badges').innerHTML = BADGES.map(b=>`<li class="px badge rv">
-  ${b.img?`<img class="medal-img" src="${b.img}" width="88" height="88" alt="${esc(b.alt)}">`:`<span class="mw" aria-hidden="true"><span class="medal${b.icon==='hf'?' hf':''}">${b.icon==='hf'?HF_SVG:esc(b.ico)}</span>${b.icon&&b.icon!=='hf'?`<span class="corner">${MINI[b.icon]}</span>`:''}</span>`}
+  ${b.img?`<img class="medal-img" src="${b.img}" width="88" height="88" alt="${esc(b.alt)}">`:`<span class="mw" aria-hidden="true"><span class="medal${b.icon==='hf'?' hf':b.icon==='bp'?' hf':''}">${b.icon==='hf'?HF_SVG:b.icon==='bp'?BP_SVG:esc(b.ico)}</span>${MINI[b.icon]?`<span class="corner">${MINI[b.icon]}</span>`:''}</span>`}
   <b>${esc(b.name)}</b><small>${esc(b.sub)}</small>
   <span class="tag">CONQUISTADO</span></li>`).join('');
 
@@ -579,7 +602,7 @@ function hud(){
   const maxS=Math.max(1,docH-vh), p=Math.min(1,Math.max(0,scrollY/maxS));
   $('#xp i').style.width=(p*100)+'%';
   $('#score').textContent='SCORE '+String(Math.round(p*9999)).padStart(5,'0');
-  const d=$('#descida'); const dT=d.offsetTop, dH=d.offsetHeight;
+  const e=$('#descend'); const dT=$('#descida').offsetTop+e.offsetTop, dH=e.offsetHeight;
   const sec=(scrollY+vh*.5)>dT+dH*.55;
   if(sec!==zoneSec){ zoneSec=sec; document.body.classList.toggle('zone-sec-on',sec); }
 }
@@ -592,9 +615,9 @@ function sizeFx(){ CW=cv.width=innerWidth; CH=cv.height=innerHeight;
 function cloud(x,y,s){ cx.fillStyle='#fff'; [[2,0,6,1],[1,1,9,1],[0,2,11,2],[1,4,9,1]].forEach(([a,b,w,h])=>cx.fillRect(x+a*s*4,y+b*s*4,w*s*4,h*s*4)); }
 function fx(){
   cx.clearRect(0,0,CW,CH);
-  const d=$('#descida'), dT=d.offsetTop, dH=d.offsetHeight;
+  const d=$('#descida'), dT=d.offsetTop, e=$('#descend'), eT=dT+e.offsetTop, eH=e.offsetHeight;
   const devA=Math.max(0,Math.min(1,(dT-scrollY-vh*.15)/(vh*.5)));
-  const c=scrollY+vh*.5, secA=Math.max(0,Math.min(1,(c-(dT+dH*.45))/(dH*.5)));
+  const c=scrollY+vh*.5, secA=Math.max(0,Math.min(1,(c-(eT+eH*.45))/(eH*.5)));
   if(devA>0){ cx.globalAlpha=devA*.85;
     clouds.forEach(k=>{ if(!reduce) k.x+=k.v; if(k.x>CW+120) k.x=-160; cloud(Math.round(k.x/4)*4,Math.round(k.y/4)*4,k.s); }); cx.globalAlpha=1; }
   if(secA>0){
