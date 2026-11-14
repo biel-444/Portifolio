@@ -125,10 +125,14 @@ body.zone-sec-on #hud nav a:hover{border-color:#00ff88}
 .feat .btn{align-self:flex-start}
 
 /* ===== DESCIDA ===== */
-#descida{height:120vh;overflow:hidden;background:linear-gradient(to bottom,transparent 0,transparent 60%,#050b09 100%),repeating-linear-gradient(0deg,#7a4a2a 0 16px,#6b3f23 16px 32px)}
+#descida{position:relative;overflow:hidden;background:repeating-linear-gradient(0deg,#7a4a2a 0 16px,#6b3f23 16px 32px)}
+#descida::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90vh;background:linear-gradient(to bottom,transparent,#050b09);pointer-events:none}
+#descida .earth{padding-top:120px;padding-bottom:40px}
+#descida .earth .title-h,#descida .earth .proj-h{color:#fff;text-shadow:3px 3px 0 #000}
+#descida .earth .lead{color:#ffe9c2;text-shadow:2px 2px 0 #000}
 #descida::before{content:"";position:absolute;left:0;right:0;top:0;height:48px;background:repeating-linear-gradient(90deg,#3fb04f 0 16px,#35983f 16px 32px);border-bottom:16px solid #2a7a33;box-shadow:0 16px 0 #5b3a1f}
 #descida .dots{position:absolute;inset:0;background-image:radial-gradient(#4f2f18 3px,transparent 4px),radial-gradient(#9b6a3f 2px,transparent 3px);background-size:64px 64px,40px 40px;background-position:0 0,20px 30px;opacity:.7}
-#descida .wrap{display:flex;flex-direction:column;justify-content:center;height:100%;padding-top:80px}
+#descida #descend{display:flex;flex-direction:column;justify-content:center;min-height:100vh;padding-top:80px}
 #descida h2{font-size:clamp(.9rem,2.6vw,1.5rem);color:#fff;text-shadow:4px 4px 0 #000;margin-bottom:20px}
 .arrows{font-family:var(--px);font-size:2rem;color:#ffd23f;text-shadow:4px 4px 0 #000;animation:fall 1s steps(4) infinite}
 @keyframes fall{0%{transform:translateY(-10px);opacity:.2}100%{transform:translateY(20px);opacity:1}}
@@ -180,7 +184,7 @@ html:has(body.nomo){scroll-behavior:auto}
     <span class="hearts" aria-hidden="true">♥♥♥</span>
     <span aria-hidden="true" id="score">SCORE 00000</span>
     <nav aria-label="Seções do portfólio">
-      <a href="#inicio">INÍCIO</a><a href="#sobre">SOBRE</a><a href="#projeto">PROJETOS</a><a href="#skills">SKILLS</a><a href="#certificados">CERTIFICADOS</a><a href="#writeups">WRITE-UPS</a><a href="#contato">CONTATO</a>
+      <a href="#inicio">INÍCIO</a><a href="#sobre">SOBRE</a><a href="#skills">SKILLS</a><a href="#certificados">CERTIFICADOS</a><a href="#projeto">PROJETOS</a><a href="#writeups">WRITE-UPS</a><a href="#contato">CONTATO</a>
     </nav>
   </div>
   <div id="xp" aria-hidden="true"><i></i></div>
@@ -211,7 +215,7 @@ html:has(body.nomo){scroll-behavior:auto}
         <div class="px rv">
           <p>Sou o Gabriel de Vargas, estudante de Tecnologias da Informação e Comunicação (TIC), cursando a Universidade Federal de Santa Catarina. Tenho dois focos: desenvolver sites e apps, e entender segurança da informação, tanto o lado da defesa quanto o do ataque.</p>
           <p>Aprendo por cursos e laboratórios e documento o que estudo, com write-ups de salas do TryHackMe e de laboratórios. Faço parte do grupo OFFSEC do LIA, na UFSC.</p>
-          <p>Também desenvolvi o HTTPFrequency, uma ferramenta para analisar requisições HTTP, DNS, cabeçalhos de segurança e e-mail. Ela aparece logo abaixo, em Projetos, junto com o BraillePlay.</p>
+          <p>Também desenvolvi o HTTPFrequency, uma ferramenta para analisar requisições HTTP, DNS, cabeçalhos de segurança e e-mail. Ela aparece mais abaixo, em Projetos web, junto com o BraillePlay.</p>
         </div>
         <div class="px edu rv">
           <h3>FORMAÇÃO</h3>
@@ -226,21 +230,9 @@ html:has(body.nomo){scroll-behavior:auto}
     </div>
   </section>
 
-  <section id="projeto" class="pad">
-    <div class="wrap">
-      <span class="stage-tag rv">FASE 2 · PROJETOS</span>
-      <h2 class="title-h rv">PROJETOS</h2>
-      <p class="lead rv">Ferramentas que desenvolvi: uma para redes e cibersegurança e uma plataforma educacional.</p>
-      <h3 class="proj-h rv">PROJETO PRINCIPAL</h3>
-      <article class="px feat rv" id="featured"></article>
-      <h3 class="proj-h rv">EM ANDAMENTO</h3>
-      <div id="wip" class="wip"></div>
-    </div>
-  </section>
-
   <section id="skills" class="pad">
     <div class="wrap">
-      <span class="stage-tag rv">FASE 3 · STATUS</span>
+      <span class="stage-tag rv">FASE 2 · STATUS</span>
       <h2 class="title-h rv">HABILIDADES</h2>
       <p class="lead rv">Cada segmento de barra equivale a 20 horas de curso concluídas. O inventário reúne ferramentas e conceitos que já estudei ou usei.</p>
       <div class="skill-cols" id="skillCols"></div>
@@ -249,7 +241,7 @@ html:has(body.nomo){scroll-behavior:auto}
 
   <section id="certificados" class="pad">
     <div class="wrap">
-      <span class="stage-tag rv">FASE 4 · CERTIFICADOS</span>
+      <span class="stage-tag rv">FASE 3 · CERTIFICADOS</span>
       <h2 class="title-h rv">CERTIFICAÇÕES</h2>
       <p class="lead rv">Organizadas por trilha. Clique em um módulo para abrir o certificado em PDF.</p>
       <div class="skill-cols" id="certGrid"></div>
@@ -259,9 +251,18 @@ html:has(body.nomo){scroll-behavior:auto}
   </section>
 </div>
 
-<section id="descida" aria-labelledby="descTitle">
+<section id="descida" aria-label="Projetos web e descida para a zona de segurança">
   <div class="dots" aria-hidden="true"></div>
-  <div class="wrap">
+  <div class="wrap earth" id="projeto">
+      <span class="stage-tag rv">FASE 4 · PROJETOS WEB</span>
+      <h2 class="title-h rv">PROJETOS WEB</h2>
+      <p class="lead rv">Sites e plataformas que desenvolvi: uma ferramenta para redes e cibersegurança e uma plataforma educacional.</p>
+      <h3 class="proj-h rv">PROJETO PRINCIPAL</h3>
+      <article class="px feat rv" id="featured"></article>
+      <h3 class="proj-h rv">EM ANDAMENTO</h3>
+      <div id="wip" class="wip"></div>
+  </div>
+  <div class="wrap" id="descend">
     <h2 id="descTitle">▼ DESCENDO PARA A ZONA DE SEGURANÇA ▼</h2>
     <div class="arrows" aria-hidden="true">▼ ▼ ▼</div>
     <div class="layer" aria-hidden="true">CAMADA 1 · PROGRAMAÇÃO<br>CAMADA 2 · LINUX E TERMINAL<br>CAMADA 3 · REDES E DEFESA CIBERNÉTICA<br>CAMADA 4 · LABORATÓRIOS E WRITE-UPS</div>
@@ -601,7 +602,7 @@ function hud(){
   const maxS=Math.max(1,docH-vh), p=Math.min(1,Math.max(0,scrollY/maxS));
   $('#xp i').style.width=(p*100)+'%';
   $('#score').textContent='SCORE '+String(Math.round(p*9999)).padStart(5,'0');
-  const d=$('#descida'); const dT=d.offsetTop, dH=d.offsetHeight;
+  const e=$('#descend'); const dT=$('#descida').offsetTop+e.offsetTop, dH=e.offsetHeight;
   const sec=(scrollY+vh*.5)>dT+dH*.55;
   if(sec!==zoneSec){ zoneSec=sec; document.body.classList.toggle('zone-sec-on',sec); }
 }
@@ -614,9 +615,9 @@ function sizeFx(){ CW=cv.width=innerWidth; CH=cv.height=innerHeight;
 function cloud(x,y,s){ cx.fillStyle='#fff'; [[2,0,6,1],[1,1,9,1],[0,2,11,2],[1,4,9,1]].forEach(([a,b,w,h])=>cx.fillRect(x+a*s*4,y+b*s*4,w*s*4,h*s*4)); }
 function fx(){
   cx.clearRect(0,0,CW,CH);
-  const d=$('#descida'), dT=d.offsetTop, dH=d.offsetHeight;
+  const d=$('#descida'), dT=d.offsetTop, e=$('#descend'), eT=dT+e.offsetTop, eH=e.offsetHeight;
   const devA=Math.max(0,Math.min(1,(dT-scrollY-vh*.15)/(vh*.5)));
-  const c=scrollY+vh*.5, secA=Math.max(0,Math.min(1,(c-(dT+dH*.45))/(dH*.5)));
+  const c=scrollY+vh*.5, secA=Math.max(0,Math.min(1,(c-(eT+eH*.45))/(eH*.5)));
   if(devA>0){ cx.globalAlpha=devA*.85;
     clouds.forEach(k=>{ if(!reduce) k.x+=k.v; if(k.x>CW+120) k.x=-160; cloud(Math.round(k.x/4)*4,Math.round(k.y/4)*4,k.s); }); cx.globalAlpha=1; }
   if(secA>0){
