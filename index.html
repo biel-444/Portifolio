@@ -346,6 +346,10 @@ const FEATURED = {
 };
 
 const WRITEUPS = [
+  { id:'easypeasy', title:'Easy Peasy', date:'22/11/2026', diff:'FÁCIL', stars:1, file:'writeups/easy-peasy.pdf',
+    tags:['Nmap','Gobuster','Base62','Steghide','Cron','Reverse shell'],
+    summary:'Enumeração web, criptografia e escalação em Linux. Flags escondidas em várias camadas de codificação e hashes levam a credenciais extraídas de uma imagem; uma tarefa cron gravável dá root.',
+    chain:['Nmap: portas 80, 6498 (SSH) e 65524','Gobuster: /hidden/whatever/ com flag em Base64 dupla','robots.txt: User-Agent que é o hash MD5 da flag 2','Base62 revela /n0th1ng3ls3m4tt3r/ e um hash da passphrase','Steghide na imagem: usuário boring e senha em binário','SSH na porta 6498 e cron gravável com reverse shell: root'] },
   { id:'brooklyn', title:'Brooklyn Nine-Nine', date:'08/11/2026', diff:'FÁCIL', stars:1, file:'writeups/brooklyn-nine-nine.pdf',
     tags:['Nmap','FTP anônimo','Steghide','SSH','sudo nano'],
     summary:'Servidor Linux inspirado na série. O acesso inicial vem de uma pista no FTP anônimo e de uma imagem com esteganografia; a escalação acontece por uma permissão de sudo no editor nano.',
